@@ -74,7 +74,7 @@ public class Cube {
 		gl.glEnable(GL10.GL_CULL_FACE);
 		
 		// What face to remove with face culling.
-//		gl.glCullFace(GL10.GL_BACK);
+		gl.glCullFace(GL10.GL_BACK);
 		
 		// Enable the vertices buffer for writing and to be used during rendering
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
