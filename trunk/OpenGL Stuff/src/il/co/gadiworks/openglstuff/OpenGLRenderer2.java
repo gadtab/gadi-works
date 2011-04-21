@@ -40,16 +40,11 @@ public class OpenGLRenderer2 implements Renderer
 		// Really nice perspective calculations.
 		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
 		
-		// Moves cube 12 units into the screen.
-//		cube.moveTo(gl, 0, 0, -12);
-		
-		// Moves pyramid 12 units into the screen and 5 right.
-//		pyramid.moveTo(gl, 5, 0, -12);
-		
 		// Setup texture, each time the surface is created
+		gl.glPushMatrix();
 		cube.loadTexture(gl, context);    // Load images into Texture
-		gl.glEnable(GL10.GL_TEXTURE_2D);  // Enable texture
-		
+//		gl.glEnable(GL10.GL_TEXTURE_2D);  // Enable texture
+		gl.glPopMatrix();
 	}
 
 	public void onDrawFrame(GL10 gl)
@@ -63,21 +58,22 @@ public class OpenGLRenderer2 implements Renderer
 //		gl.glRotatef(rx, 1, 0, 0);
 //		gl.glRotatef(ry, 0, 1, 0);
 		
-//		gl.glRotatef(angleX, 1, 0, 0);
-//		gl.glRotatef(angleY, 0, 1, 0);
-		
+		gl.glPushMatrix();
 		this.cube.moveTo(gl, 0, -1, -12);
 		this.cube.rotate(gl, angleX, 1, 1, 0);
 		this.cube.draw(gl);
+		gl.glPopMatrix();
 		
-		this.pyramid.moveTo(gl, 0, 2, 0);
-		this.pyramid.rotate(gl, angleY, 0, 1, 0);
+		gl.glPushMatrix();
+		this.pyramid.moveTo(gl, 0, 2.5f, -12);
+		this.pyramid.rotate(gl, angleY, 1, 1, 0);
 		this.pyramid.draw(gl);
+		gl.glPopMatrix();
 		
 //		this.shape.draw(gl);
 
-		angleX += 0.5f;
-		angleY += 1.0f;
+		angleX++;
+		angleY--;
 	}
 
 	public void onSurfaceChanged(GL10 gl, int width, int height)

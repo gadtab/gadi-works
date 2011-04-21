@@ -15,8 +15,6 @@ import android.graphics.BitmapFactory;
 import android.opengl.GLUtils;
 
 public class Cube {
-//	public float move1;
-	
 	private float vertices[] = {
 		-1, -1, 0,
 		 1, -1, 0,
@@ -33,14 +31,9 @@ public class Cube {
 	
 	private int[] textureIDs = new int[1]; 
 		
-//	private short[] indices = {0, 1, 2, 2, 1, 3};
-		
 	// Our vertex buffer.
 	private FloatBuffer vertexBuffer, texBuffer;
 
-	// Our index buffer.
-//	private ShortBuffer indexBuffer;
-		
 	public Cube() {
 		// a float is 4 bytes, therefore we multiply the number if
 		// vertices with 4.
@@ -56,14 +49,6 @@ public class Cube {
 	    texBuffer = tbb.asFloatBuffer();
 	    texBuffer.put(texCoords);
 	    texBuffer.position(0);
-		
-		// short is 2 bytes, therefore we multiply the number if
-		// vertices with 2.
-//		ByteBuffer ibb = ByteBuffer.allocateDirect(indices.length * 2);
-//		ibb.order(ByteOrder.nativeOrder());
-//		indexBuffer = ibb.asShortBuffer();
-//		indexBuffer.put(indices);
-//		indexBuffer.position(0);
 	}
 	
 	public void draw(GL10 gl) {
@@ -93,14 +78,12 @@ public class Cube {
 		gl.glPushMatrix();
 		gl.glTranslatef(0, 0, -1);
 		gl.glRotatef(180, 0, 1, 0);
-//		gl.glColor4f(1, 1, 0, 1);
 		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
 		gl.glPopMatrix();
 		
 		// front
 		gl.glPushMatrix();
 		gl.glTranslatef(0, 0, 1);
-//		gl.glColor4f(0.5f, 0.5f, 0, 1);
 		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
 		gl.glPopMatrix();
 		
@@ -108,7 +91,6 @@ public class Cube {
 		gl.glPushMatrix();
 		gl.glTranslatef(-1, 0, 0);
 		gl.glRotatef(-90, 0, 1, 0);
-//		gl.glColor4f(0, 1, 1, 1);
 		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
 		gl.glPopMatrix();	
 		
@@ -116,7 +98,6 @@ public class Cube {
 		gl.glPushMatrix();
 		gl.glTranslatef(0, -1, 0);
 		gl.glRotatef(90, 1, 0, 0);
-//		gl.glColor4f(1, 0, 1, 1);
 		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
 		gl.glPopMatrix();			
 		
@@ -124,7 +105,6 @@ public class Cube {
 		gl.glPushMatrix();
 		gl.glTranslatef(0, 1, 0);
 		gl.glRotatef(-90, 1, 0, 0);
-//		gl.glColor4f(0.5f, 0, 0.5f, 1);
 		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
 		gl.glPopMatrix();	
 		
@@ -132,7 +112,6 @@ public class Cube {
 		gl.glPushMatrix();
 		gl.glTranslatef(1, 0, 0);
 		gl.glRotatef(90, 0, 1, 0);
-//		gl.glColor4f(0, 0.5f, 0.5f, 1);
 		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
 		gl.glPopMatrix();
 		
@@ -164,6 +143,8 @@ public class Cube {
 	   // Build Texture from loaded bitmap for the currently-bind texture ID
 	   GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
 	   bitmap.recycle();
+	   
+	   gl.glEnable(GL10.GL_TEXTURE_2D);
 	}
 	
 	public void rotate(GL10 gl, float angle, float x, float y, float z) {
