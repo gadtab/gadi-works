@@ -165,4 +165,12 @@ public class Cube {
 	   GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
 	   bitmap.recycle();
 	}
+	
+	public void rotate(GL10 gl, float angle, float x, float y, float z) {
+		gl.glRotatef(angle, x, y, z);
+	}
+	
+	public void moveTo(GL10 gl, float x, float y, float z) {
+		gl.glTranslatef(x, y, z);
+	}
 }
