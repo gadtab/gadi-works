@@ -11,22 +11,23 @@ public class OpenGLRenderer2 implements Renderer
 {
 //	private Shape shape;
 	private Cube cube;
+	private Pyramid pyramid;
 	
 	private Context context;
 	
 	public float ry, rx, angleX, angleY;
-	public double moveXY;
 	
 	public OpenGLRenderer2(Context context) {
 		this.context = context;
 		
 //		this.shape = new Shape();
 		this.cube = new Cube();
+		this.pyramid = new Pyramid();
 	}
 	
 	public void onSurfaceCreated(GL10 gl, EGLConfig config)
 	{
-		// Set the background to dark yellow (rgba).
+		// Set the background to yellow (rgba).
 		gl.glClearColor(0.941f, 0.937f, 0.533f, 0.5f);
 		// Enable smooth shading, default not really needed.
 		gl.glShadeModel(GL10.GL_SMOOTH);
@@ -38,6 +39,12 @@ public class OpenGLRenderer2 implements Renderer
 		gl.glDepthFunc(GL10.GL_LEQUAL);
 		// Really nice perspective calculations.
 		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
+		
+		// Moves cube 12 units into the screen.
+//		cube.moveTo(gl, 0, 0, -12);
+		
+		// Moves pyramid 12 units into the screen and 5 right.
+//		pyramid.moveTo(gl, 5, 0, -12);
 		
 		// Setup texture, each time the surface is created
 		cube.loadTexture(gl, context);    // Load images into Texture
@@ -53,23 +60,24 @@ public class OpenGLRenderer2 implements Renderer
 		// Replace the current matrix with the identity matrix
 		gl.glLoadIdentity();
 		
-		// Translates 12 units into the screen.
-//		gl.glTranslatef(0, 0, -12);
-		
-		gl.glTranslatef((float)Math.sin(moveXY), (float)(2 * Math.cos(moveXY)), -12);
-		
 //		gl.glRotatef(rx, 1, 0, 0);
 //		gl.glRotatef(ry, 0, 1, 0);
 		
-		gl.glRotatef(angleX, 1, 0, 0);
-		gl.glRotatef(angleY, 0, 1, 0);
+//		gl.glRotatef(angleX, 1, 0, 0);
+//		gl.glRotatef(angleY, 0, 1, 0);
+		
+		this.cube.moveTo(gl, 0, -1, -12);
+		this.cube.rotate(gl, angleX, 1, 1, 0);
+		this.cube.draw(gl);
+		
+		this.pyramid.moveTo(gl, 0, 2, 0);
+		this.pyramid.rotate(gl, angleY, 0, 1, 0);
+		this.pyramid.draw(gl);
 		
 //		this.shape.draw(gl);
-		this.cube.draw(gl);
 
 		angleX += 0.5f;
 		angleY += 1.0f;
-		moveXY += 0.3;
 	}
 
 	public void onSurfaceChanged(GL10 gl, int width, int height)
