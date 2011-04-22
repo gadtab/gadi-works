@@ -1,7 +1,6 @@
 package il.co.gadiworks.openglstuff;
 
 import android.app.Activity;
-import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
 public class OpenGLStuffActivity extends Activity {
@@ -12,8 +11,6 @@ public class OpenGLStuffActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         view = new RotateGLSurfaceView(this);
-//        GLSurfaceView view = new GLSurfaceView(this);
-//        view.setRenderer(new OpenGLRenderer2());
         setContentView(view);
     }
     

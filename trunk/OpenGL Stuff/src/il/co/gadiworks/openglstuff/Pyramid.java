@@ -7,21 +7,34 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.opengles.GL10;
 
 public class Pyramid {
-	private float vertices[] = {
-			-1, 0, 1,
-			 1, 0, 1,
-		     0, 2, 0,
+	private float[] vertices = {
+		  	 0, 2,  0,		// 0
+		  	 1, 0, -1,		// 1
+		  	-1, 0, -1,		// 2
+		  	 1, 0,  1,		// 3
+			-1, 0,  1		// 4
 		};
 	
-	private float baseVertices[] = {
-			 1, 0,  1,
-			-1, 0,  1,
-			 1, 0, -1,
-			-1, 0, -1
+	private byte[] indices =  {
+			0, 1, 2,
+			0, 4, 3, 
+			0, 3, 1,
+			0, 2, 4,
+			2, 1, 4,
+			4, 1, 3
+		};
+	
+	private float[] colors = {
+			 0,    1, 0,    1,
+			 1,    0, 0.5f, 1,
+			 0.5f, 0, 0.5f, 1,
+			 1,    0, 1,    1,
+			 0.5f, 0, 1,    1
 		};
 	
 	// Our vertex buffer.
-	private FloatBuffer vertexBuffer, baseVertexBuffer;
+	private FloatBuffer vertexBuffer, colorBuffer;
+	private ByteBuffer  indexBuffer;
 
 	public Pyramid() {
 		// a float is 4 bytes, therefore we multiply the number if
@@ -32,11 +45,16 @@ public class Pyramid {
 		vertexBuffer.put(vertices);
 		vertexBuffer.position(0);
 		
-		ByteBuffer vbb2 = ByteBuffer.allocateDirect(baseVertices.length * 4);
-		vbb2.order(ByteOrder.nativeOrder());
-		baseVertexBuffer = vbb2.asFloatBuffer();
-		baseVertexBuffer.put(baseVertices);
-		baseVertexBuffer.position(0);
+		indexBuffer = ByteBuffer.allocateDirect(indices.length);
+		indexBuffer.order(ByteOrder.nativeOrder());
+		indexBuffer.put(indices);
+		indexBuffer.position(0);
+		
+		ByteBuffer cbb = ByteBuffer.allocateDirect(colors.length * 4);
+		cbb.order(ByteOrder.nativeOrder());
+		colorBuffer = cbb.asFloatBuffer();
+		colorBuffer.put(colors);
+		colorBuffer.position(0);
 	}
 	
 	public void draw(GL10 gl) {
@@ -56,41 +74,17 @@ public class Pyramid {
 		// coordinates to use when rendering.
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
 		
-		// front
-		gl.glPushMatrix();
-		gl.glColor4f(0, 1, 0, 1);
-		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 3);
-		gl.glPopMatrix();
+		// Enable the colors buffer to be used during rendering.
+		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
+		// Point out the where the color buffer is.
+		gl.glColorPointer(4, GL10.GL_FLOAT, 0, colorBuffer);
 		
-		// back
-		gl.glPushMatrix();
-		gl.glRotatef(180, 0, 1, 0);
-		gl.glColor4f(0, 0.5f, 0, 1);
-		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 3);
-		gl.glPopMatrix();
-		
-		// left
-		gl.glPushMatrix();
-		gl.glRotatef(90, 0, 1, 0);
-		gl.glColor4f(1, 0, 0, 1);
-		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 3);
-		gl.glPopMatrix();
-		
-		// right
-		gl.glPushMatrix();
-		gl.glRotatef(-90, 0, 1, 0);
-		gl.glColor4f(0.5f, 0, 0, 1);
-		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 3);
-		gl.glPopMatrix();
-		
-		gl.glPushMatrix();
-		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, baseVertexBuffer);
-		gl.glColor4f(0f, 0, 1, 1);
-		gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
-		gl.glPopMatrix();
+		gl.glDrawElements(GL10.GL_TRIANGLES, indices.length, GL10.GL_UNSIGNED_BYTE, indexBuffer);
 		
 		// Disable the vertices buffer.
 		gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+		// Disable the colors buffer.
+		gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
 		// Disable face culling.
 		gl.glDisable(GL10.GL_CULL_FACE);
 	}

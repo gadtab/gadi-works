@@ -15,7 +15,7 @@ public class OpenGLRenderer2 implements Renderer
 	
 	private Context context;
 	
-	public float ry, rx, angleX, angleY;
+	public float ry, rx, angleCube, anglePyramid;
 	
 	public OpenGLRenderer2(Context context) {
 		this.context = context;
@@ -55,25 +55,28 @@ public class OpenGLRenderer2 implements Renderer
 		// Replace the current matrix with the identity matrix
 		gl.glLoadIdentity();
 		
+//		gl.glTranslatef(0, 0, -12);
+		
 //		gl.glRotatef(rx, 1, 0, 0);
 //		gl.glRotatef(ry, 0, 1, 0);
-		
-		gl.glPushMatrix();
-		this.cube.moveTo(gl, 0, -1, -12);
-		this.cube.rotate(gl, angleX, 1, 1, 0);
-		this.cube.draw(gl);
-		gl.glPopMatrix();
+
 		
 		gl.glPushMatrix();
 		this.pyramid.moveTo(gl, 0, 2.5f, -12);
-		this.pyramid.rotate(gl, angleY, 1, 1, 0);
+		this.pyramid.rotate(gl, anglePyramid, 1, 1, 0);
 		this.pyramid.draw(gl);
+		gl.glPopMatrix();
+		
+		gl.glPushMatrix();
+		this.cube.moveTo(gl, 0, -1, -12);
+		this.cube.rotate(gl, angleCube, 1, 1, 0);
+		this.cube.draw(gl);
 		gl.glPopMatrix();
 		
 //		this.shape.draw(gl);
 
-		angleX++;
-		angleY--;
+		angleCube++;
+		anglePyramid--;
 	}
 
 	public void onSurfaceChanged(GL10 gl, int width, int height)
