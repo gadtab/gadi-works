@@ -41,10 +41,8 @@ public class OpenGLRenderer2 implements Renderer
 		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
 		
 		// Setup texture, each time the surface is created
-		gl.glPushMatrix();
 		cube.loadTexture(gl, context);    // Load images into Texture
 //		gl.glEnable(GL10.GL_TEXTURE_2D);  // Enable texture
-		gl.glPopMatrix();
 	}
 
 	public void onDrawFrame(GL10 gl)
@@ -61,17 +59,16 @@ public class OpenGLRenderer2 implements Renderer
 //		gl.glRotatef(ry, 0, 1, 0);
 
 		
-		gl.glPushMatrix();
 		this.pyramid.moveTo(gl, 0, 2.5f, -12);
 		this.pyramid.rotate(gl, anglePyramid, 1, 1, 0);
 		this.pyramid.draw(gl);
-		gl.glPopMatrix();
 		
-		gl.glPushMatrix();
+		// Replace the current matrix with the identity matrix
+		gl.glLoadIdentity();
+		
 		this.cube.moveTo(gl, 0, -1, -12);
 		this.cube.rotate(gl, angleCube, 1, 1, 0);
 		this.cube.draw(gl);
-		gl.glPopMatrix();
 		
 //		this.shape.draw(gl);
 
