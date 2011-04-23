@@ -27,6 +27,9 @@ public class OpenGLRenderer2 implements Renderer
 	
 	public void onSurfaceCreated(GL10 gl, EGLConfig config)
 	{
+		// Setup texture, each time the surface is created
+		cube.loadTexture(gl, context);    // Load images into Texture
+		
 		// Set the background to yellow (rgba).
 		gl.glClearColor(0.941f, 0.937f, 0.533f, 0.5f);
 		// Enable smooth shading, default not really needed.
@@ -40,9 +43,7 @@ public class OpenGLRenderer2 implements Renderer
 		// Really nice perspective calculations.
 		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
 		
-		// Setup texture, each time the surface is created
-		cube.loadTexture(gl, context);    // Load images into Texture
-//		gl.glEnable(GL10.GL_TEXTURE_2D);  // Enable texture
+		gl.glEnable(GL10.GL_TEXTURE_2D);  // Enable texture
 	}
 
 	public void onDrawFrame(GL10 gl)
@@ -51,7 +52,7 @@ public class OpenGLRenderer2 implements Renderer
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		
 		// Replace the current matrix with the identity matrix
-		gl.glLoadIdentity();
+//		gl.glLoadIdentity();
 		
 //		gl.glTranslatef(0, 0, -12);
 		
@@ -59,14 +60,14 @@ public class OpenGLRenderer2 implements Renderer
 //		gl.glRotatef(ry, 0, 1, 0);
 
 		
-		this.pyramid.moveTo(gl, 0, 2.5f, -12);
-		this.pyramid.rotate(gl, anglePyramid, 1, 1, 0);
-		this.pyramid.draw(gl);
+//		this.pyramid.moveTo(gl, 0, 2.5f, -12);
+//		this.pyramid.rotate(gl, anglePyramid, 1, 1, 0);
+//		this.pyramid.draw(gl);
 		
 		// Replace the current matrix with the identity matrix
 		gl.glLoadIdentity();
 		
-		this.cube.moveTo(gl, 0, -1, -12);
+		this.cube.moveTo(gl, 0, 0, -8);
 		this.cube.rotate(gl, angleCube, 1, 1, 0);
 		this.cube.draw(gl);
 		
@@ -78,6 +79,10 @@ public class OpenGLRenderer2 implements Renderer
 
 	public void onSurfaceChanged(GL10 gl, int width, int height)
 	{
+		if(height == 0) { 						//Prevent A Divide By Zero By
+			height = 1; 						//Making Height Equal One
+		}
+		
 		// Sets the current view port to the new size.
 		gl.glViewport(0, 0, width, height);
 		// Select the projection matrix.

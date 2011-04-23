@@ -52,6 +52,9 @@ public class Cube {
 	}
 	
 	public void draw(GL10 gl) {
+		//Bind our only previously generated texture in this case
+//		gl.glBindTexture(GL10.GL_TEXTURE_2D, textureIDs[0]);
+		
 		// Counter-clockwize winding.
 		gl.glFrontFace(GL10.GL_CCW);
 		
@@ -117,11 +120,17 @@ public class Cube {
 		
 		// Disable the vertices buffer.
 		gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+		gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 		gl.glDisable(GL10.GL_CULL_FACE);
 	}
 	
 	// Load an image into GL texture
 	public void loadTexture(GL10 gl, Context context) {
+
+		//Different possible texture parameters, e.g. GL10.GL_CLAMP_TO_EDGE
+//		gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_REPEAT);
+//		gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_REPEAT);
+		
 	   gl.glGenTextures(1, textureIDs, 0); // Generate texture-ID array
 
 	   gl.glBindTexture(GL10.GL_TEXTURE_2D, textureIDs[0]);   // Bind to texture ID
@@ -143,8 +152,6 @@ public class Cube {
 	   // Build Texture from loaded bitmap for the currently-bind texture ID
 	   GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
 	   bitmap.recycle();
-	   
-	   gl.glEnable(GL10.GL_TEXTURE_2D);
 	}
 	
 	public void rotate(GL10 gl, float angle, float x, float y, float z) {
