@@ -2,6 +2,7 @@ package il.co.gadiworks.thebasics;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,12 +15,28 @@ public class MyMenu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        // Set up the button sound.
+        final MediaPlayer mpButtonClick = MediaPlayer.create(this, R.raw.button_sound);
+        
+        // Button 1.
         Button btnTutorial1 = (Button) findViewById(R.id.btnTutorial1);
         btnTutorial1.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent("il.co.gadiworks.thebasics.TUTORIALONE"));
+				mpButtonClick.start();
+			}
+		});
+        
+     // Button 2.
+        Button btnTutorial2 = (Button) findViewById(R.id.btnTutorial2);
+        btnTutorial2.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent("il.co.gadiworks.thebasics.TUTORIALONE"));
+				mpButtonClick.start();
 			}
 		});
     }
