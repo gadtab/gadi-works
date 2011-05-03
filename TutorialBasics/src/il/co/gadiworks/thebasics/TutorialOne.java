@@ -18,7 +18,7 @@ public class TutorialOne extends Activity implements OnCheckedChangeListener {
 	EditText etInput;
 	RadioGroup rgGravity, rgStyle;
 	
-	 /** Called when the activity is first created. */
+	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
