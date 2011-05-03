@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MyMenu extends Activity {
 	/** Called when the activity is first created. */
@@ -60,6 +61,9 @@ public class MyMenu extends Activity {
 			startActivity(new Intent("il.co.gadiworks.thebasics.SWEET"));
 			return true;
 		case R.id.menuToast:
+			Toast display = Toast.makeText(this, "Again, Welcome to GadiWorks!!!", Toast.LENGTH_SHORT);
+			display.show();
+			return true;
 		}
 		
 		return false;
