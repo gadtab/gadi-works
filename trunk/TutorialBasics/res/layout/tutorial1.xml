@@ -21,6 +21,7 @@
 		android:layout_width="fill_parent"
 		android:orientation="horizontal">
 		<RadioGroup 
+			android:id="@+id/rgGravity"
 			android:layout_height="wrap_content" 
 			android:orientation="vertical" android:layout_weight="50" android:layout_width="fill_parent">		
 			<RadioButton android:text="Left" android:id="@+id/rbLeft"
@@ -31,6 +32,7 @@
 				android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
 		</RadioGroup>
 		<RadioGroup 
+			android:id="@+id/rgStyle"
 			android:layout_height="wrap_content" 
 			android:layout_width="fill_parent"
 			android:orientation="vertical" android:layout_weight="50">	
@@ -48,6 +50,10 @@
 		android:textSize="20dp" 
 		android:id="@+id/tvGetInput"
 		android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center"></TextView>
-	<Button android:text="OK" android:id="@+id/btnOK"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+	<Button 
+		android:text="OK" 
+		android:id="@+id/btnOK"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:textSize="25dp"></Button>
 </LinearLayout>
