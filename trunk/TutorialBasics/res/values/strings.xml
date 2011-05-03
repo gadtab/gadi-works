@@ -2,4 +2,5 @@
 <resources>
     <string name="hello">Hello World, MyMain!</string>
     <string name="app_name">The Basics</string>
+    <string name="title">This the main title</string>
 </resources>
