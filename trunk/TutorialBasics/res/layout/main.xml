@@ -2,17 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" 
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+	android:layout_height="fill_parent"
+	android:background="@drawable/gadiworks_bg">
+	<TextView 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:text="@string/hello" 
+		android:textColor="#f10123d1"
+		/>
 	<TextView 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" 
-		android:text="@string/hello" />
+		android:text="This is what is displaying" 
+		android:gravity="center" 
+		android:textColor="#ff012201"
+	    />
 	<TextView 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" 
-		android:text="This is what is displaying" />
-	<TextView 
-		android:layout_width="fill_parent"
+		android:text="@string/title" 
+		android:textColor="#f11ff1f1"
+		android:textSize="25dp"
+		android:textStyle="bold"
+		/>
+	<Button
+	 	android:layout_width="fill_parent"
 		android:layout_height="wrap_content" 
-		android:text="@string/title" />
+		android:text="Tutorial"
+		android:textStyle="bold"
+		android:textSize="25dp"
+		/>
 </LinearLayout>
