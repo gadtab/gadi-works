@@ -32,4 +32,12 @@
 		android:textStyle="bold"
 		android:textSize="25dp"
 		/>
+	<Button 
+		android:id="@+id/btnTutorial2" 
+		android:layout_height="wrap_content" 
+		android:text="Tutorial 2" 
+		android:layout_width="fill_parent" 
+		android:textSize="25dp" 
+		android:textStyle="bold" 
+		/>
 </LinearLayout>
