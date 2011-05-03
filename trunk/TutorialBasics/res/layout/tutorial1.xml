@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent" 
+	android:layout_width="fill_parent"
+	android:orientation="vertical">
+	<EditText android:text="" android:id="@+id/etInput"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
+		
+	<LinearLayout
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent"
+		android:orientation="horizontal">
+		<TextView android:text="Gravity" 
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		<TextView android:text="Style" 
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	</LinearLayout>	
+	
+	<LinearLayout
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent"
+		android:orientation="horizontal">
+		<RadioGroup 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content"
+			android:orientation="vertical">		
+			<RadioButton android:text="Left" android:id="@+id/rbLeft"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+			<RadioButton android:text="Center" android:id="@+id/rbCenter"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+			<RadioButton android:text="Right" android:id="@+id/rbRight"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+		</RadioGroup>
+		<RadioGroup 
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent"
+			android:orientation="vertical">	
+			<RadioButton android:text="Normal" android:id="@+id/rbNormal"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+			<RadioButton android:text="Bold" android:id="@+id/rbBold"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+			<RadioButton android:text="Italic" android:id="@+id/rbItalic"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+		</RadioGroup>
+	</LinearLayout>	
+	
+	<TextView 
+		android:text="Enter Something and Click OK"
+		android:textSize="25dp" 
+		android:id="@+id/tvGetInput"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	<Button android:text="OK" android:id="@+id/btnOK"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
 </LinearLayout>
