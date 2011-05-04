@@ -39,7 +39,7 @@ public class MyMenu extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent("il.co.gadiworks.thebasics.TUTORIALONE"));
+				startActivity(new Intent("il.co.gadiworks.thebasics.TUTORIALTWO"));
 				mpButtonClick.start();
 			}
 		});
