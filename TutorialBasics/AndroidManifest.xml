@@ -35,5 +35,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".ListV"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="il.co.gadiworks.thebasics.TUTORIALTWO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>
