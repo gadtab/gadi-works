@@ -1,10 +1,18 @@
 package il.co.gadiworks.thebasics;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -13,6 +21,7 @@ import android.widget.Toast;
 public class TutorialFour extends Activity implements OnCheckedChangeListener {
 	MediaPlayer song1, song2, song3, song4;
 	int whatSong;
+	int rSong;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +40,52 @@ public class TutorialFour extends Activity implements OnCheckedChangeListener {
 		
 		Button bPlay = (Button) findViewById (R.id.bPlay);
 		Button bStop = (Button) findViewById (R.id.bStop);
+		
+		bPlay.setOnLongClickListener(new OnLongClickListener() {
+			
+			@Override
+			public boolean onLongClick(View v) {
+				File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+				File file = new File(path, "GadiWorks Song" + whatSong + ".mp3");
+				
+				try {
+					switch (whatSong) {
+					case 1:
+						rSong = R.raw.hot_dog;
+						break;
+					case 2:
+						rSong = R.raw.party;
+						break;
+					case 3:
+						rSong = R.raw.steadfast_loyal_and_true;
+						break;
+					case 4:
+						rSong = R.raw.yesterday_one_more;
+						break;
+					}
+					
+					InputStream is = getResources().openRawResource(rSong);
+					OutputStream os = new FileOutputStream(file);
+					
+					byte[] data = new byte[is.available()];
+					is.read(data);
+					os.write(data);
+					
+					is.close();
+					os.close();
+					
+					Toast.makeText(TutorialFour.this, "Song Saved", Toast.LENGTH_SHORT).show();
+				}
+				catch (IOException e) {
+					Toast fail = Toast.makeText(TutorialFour.this, "Fail", Toast.LENGTH_SHORT);
+					fail.show();
+					
+					e.printStackTrace();
+				}
+				
+				return false;
+			}
+		});
 		
 		bPlay.setOnClickListener(new OnClickListener() {
 			
