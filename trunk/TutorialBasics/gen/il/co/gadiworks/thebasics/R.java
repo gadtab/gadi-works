@@ -29,6 +29,8 @@ public final class R {
         public static final int tree_winter=0x7f02000f;
     }
     public static final class id {
+        public static final int bPlay=0x7f070029;
+        public static final int bStop=0x7f07002a;
         public static final int btnOK=0x7f070014;
         public static final int btnSetWallpaper=0x7f070016;
         public static final int btnTutorial1=0x7f070000;
@@ -42,6 +44,7 @@ public final class R {
         public static final int btnTutorial8=0x7f070007;
         public static final int btnTutorial9=0x7f070008;
         public static final int etInput=0x7f07000a;
+        public static final int groupMusic=0x7f070024;
         public static final int ivDisplay=0x7f070015;
         public static final int ivImage1=0x7f070017;
         public static final int ivImage10=0x7f070020;
@@ -55,16 +58,21 @@ public final class R {
         public static final int ivImage7=0x7f07001d;
         public static final int ivImage8=0x7f07001e;
         public static final int ivImage9=0x7f07001f;
-        public static final int menuSweet=0x7f070023;
-        public static final int menuToast=0x7f070024;
+        public static final int menuSweet=0x7f07002b;
+        public static final int menuToast=0x7f07002c;
         public static final int rbBold=0x7f070011;
         public static final int rbCenter=0x7f07000d;
         public static final int rbItalic=0x7f070012;
         public static final int rbLeft=0x7f07000c;
+        public static final int rbMusic1=0x7f070025;
+        public static final int rbMusic2=0x7f070026;
+        public static final int rbMusic3=0x7f070027;
+        public static final int rbMusic4=0x7f070028;
         public static final int rbNormal=0x7f070010;
         public static final int rbRight=0x7f07000e;
         public static final int rgGravity=0x7f07000b;
         public static final int rgStyle=0x7f07000f;
+        public static final int textView1=0x7f070023;
         public static final int tvGetInput=0x7f070013;
     }
     public static final class layout {
@@ -74,6 +82,7 @@ public final class R {
         public static final int splash=0x7f030003;
         public static final int tutorial1=0x7f030004;
         public static final int tutorial3=0x7f030005;
+        public static final int tutorial4=0x7f030006;
     }
     public static final class menu {
         public static final int main_menu=0x7f060000;
@@ -81,6 +90,10 @@ public final class R {
     public static final class raw {
         public static final int button_sound=0x7f040000;
         public static final int hi=0x7f040001;
+        public static final int hot_dog=0x7f040002;
+        public static final int party=0x7f040003;
+        public static final int steadfast_loyal_and_true=0x7f040004;
+        public static final int yesterday_one_more=0x7f040005;
     }
     public static final class string {
         public static final int app_name=0x7f050001;
