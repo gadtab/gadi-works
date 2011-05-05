@@ -60,7 +60,7 @@
 			<Button 
 				android:id="@+id/btnTutorial4" 
 				android:layout_height="wrap_content" 
-				android:text="Tutorial 4" 
+				android:text="Download Music To Phone" 
 				android:layout_width="fill_parent" 
 				android:textSize="25dp" 
 				android:textStyle="bold" 
