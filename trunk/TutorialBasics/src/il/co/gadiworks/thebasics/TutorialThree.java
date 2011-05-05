@@ -8,8 +8,11 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class TutorialThree extends Activity implements OnClickListener {
 	ImageView ivDisplay;
@@ -18,6 +21,10 @@ public class TutorialThree extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
 		setContentView(R.layout.tutorial3);
 		
 		ivDisplay = (ImageView) findViewById(R.id.ivDisplay);
@@ -111,6 +118,7 @@ public class TutorialThree extends Activity implements OnClickListener {
 			Bitmap bmWallpaper = BitmapFactory.decodeStream(getResources().openRawResource(toPhone));
 			try {
 				getApplicationContext().setWallpaper(bmWallpaper);
+				Toast.makeText(getApplicationContext(), "Wallpaper Set", Toast.LENGTH_SHORT).show();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
