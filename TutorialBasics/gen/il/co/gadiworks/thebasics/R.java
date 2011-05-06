@@ -11,22 +11,26 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int clouds_picture=0x7f020000;
-        public static final int dog_animal=0x7f020001;
-        public static final int engine_photo=0x7f020002;
-        public static final int flowers_image=0x7f020003;
-        public static final int forest_wood=0x7f020004;
-        public static final int fruits_picture=0x7f020005;
-        public static final int gadiworks_bg=0x7f020006;
-        public static final int gadiworks_hi=0x7f020007;
-        public static final int gadiworks_icon=0x7f020008;
-        public static final int icon=0x7f020009;
-        public static final int lake_tree=0x7f02000a;
-        public static final int logs_picture=0x7f02000b;
-        public static final int sculpture_photo=0x7f02000c;
-        public static final int stones_background=0x7f02000d;
-        public static final int sunshades=0x7f02000e;
-        public static final int tree_winter=0x7f02000f;
+        public static final int cloud1=0x7f020000;
+        public static final int cloud2=0x7f020001;
+        public static final int cloud3=0x7f020002;
+        public static final int clouds_picture=0x7f020003;
+        public static final int custombutton=0x7f020004;
+        public static final int dog_animal=0x7f020005;
+        public static final int engine_photo=0x7f020006;
+        public static final int flowers_image=0x7f020007;
+        public static final int forest_wood=0x7f020008;
+        public static final int fruits_picture=0x7f020009;
+        public static final int gadiworks_bg=0x7f02000a;
+        public static final int gadiworks_hi=0x7f02000b;
+        public static final int gadiworks_icon=0x7f02000c;
+        public static final int icon=0x7f02000d;
+        public static final int lake_tree=0x7f02000e;
+        public static final int logs_picture=0x7f02000f;
+        public static final int sculpture_photo=0x7f020010;
+        public static final int stones_background=0x7f020011;
+        public static final int sunshades=0x7f020012;
+        public static final int tree_winter=0x7f020013;
     }
     public static final class id {
         public static final int bPlay=0x7f070029;
@@ -83,6 +87,7 @@ public final class R {
         public static final int tutorial1=0x7f030004;
         public static final int tutorial3=0x7f030005;
         public static final int tutorial4=0x7f030006;
+        public static final int tutorial5=0x7f030007;
     }
     public static final class menu {
         public static final int main_menu=0x7f060000;
