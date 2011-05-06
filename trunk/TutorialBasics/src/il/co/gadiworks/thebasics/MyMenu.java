@@ -65,6 +65,17 @@ public class MyMenu extends Activity {
 				mpButtonClick.start();
 			}
 		});
+        
+        // Button 5.
+        Button btnTutorial5 = (Button) findViewById(R.id.btnTutorial5);
+        btnTutorial5.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent("il.co.gadiworks.thebasics.TUTORIALFIVE"));
+				mpButtonClick.start();
+			}
+		});
     }
     
     @Override
