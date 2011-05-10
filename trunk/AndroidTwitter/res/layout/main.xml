@@ -4,9 +4,23 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+	<TextView  
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:text="Twitter Test"
+	    android:textSize="25dp"
+	    android:gravity="center"
+	    />
+	<EditText
+		android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:id="@+id/etTwit"
+	    />
+	<Button
+		android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="Tweet"
+	    android:textSize="25dp"
+	    android:id="@+id/btnTweet"
+	    />
 </LinearLayout>
