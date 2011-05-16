@@ -27,7 +27,7 @@ public class OpenGLRenderer2 implements Renderer
 	 * The initial light values for ambient and diffuse
 	 * as well as the light position
 	 */
-	private float[] lightAmbient = {0.5f, 0.5f, 0.5f, 1.0f};
+	private float[] lightAmbient = {0.8f, 0.8f, 0.8f, 1.0f};
 	private float[] lightDiffuse = {1.0f, 1.0f, 1.0f, 1.0f};
 	private float[] lightPosition = {0.0f, 0.0f, 2.0f, 1.0f};
 	
@@ -86,6 +86,7 @@ public class OpenGLRenderer2 implements Renderer
 		
 		//Disable dithering 
 		gl.glDisable(GL10.GL_DITHER);
+		
 		// Set the background to yellow (rgba).
 		gl.glClearColor(0.941f, 0.937f, 0.533f, 0.5f);
 		// Enable smooth shading, default not really needed.
@@ -111,9 +112,11 @@ public class OpenGLRenderer2 implements Renderer
 	 */
 	public void onDrawFrame(GL10 gl)
 	{
+		gl.glDisable(GL10.GL_DITHER);
+		
 		// Clears the screen and depth buffer.
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-		
+		gl.glMatrixMode(GL10.GL_MODELVIEW);
 		// Replace the current matrix with the identity matrix
 //		gl.glLoadIdentity();
 		
@@ -129,6 +132,8 @@ public class OpenGLRenderer2 implements Renderer
 		
 		// Replace the current matrix with the identity matrix
 		gl.glLoadIdentity();
+		
+		gl.glEnable(GL10.GL_LIGHTING);
 		
 		this.cube.moveTo(gl, 0, 0, -8);
 		this.cube.rotate(gl, angleCube, 1, 1, 0);

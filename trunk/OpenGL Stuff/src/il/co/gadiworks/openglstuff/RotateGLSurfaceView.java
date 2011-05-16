@@ -11,6 +11,10 @@ public class RotateGLSurfaceView extends GLSurfaceView {
 		super(context);
 		renderer = new OpenGLRenderer2(context);
 		setRenderer(renderer);
+		
+		//Request focus, otherwise buttons won't react
+		this.requestFocus();
+		this.setFocusableInTouchMode(true);
 	}
 
 	@Override
