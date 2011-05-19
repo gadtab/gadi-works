@@ -34,6 +34,9 @@
         <activity android:label="Assets Test"
           android:name=".AssetsTest"
           android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="External Storage Test"
+          android:name=".ExternalStorageTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
