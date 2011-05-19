@@ -25,6 +25,15 @@
         <activity android:label="Multi Touch Test"
           android:name=".MultiTouchTest"
           android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Key Test"
+          android:name=".KeyTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Accelerometer Test"
+          android:name=".AccelerometerTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Assets Test"
+          android:name=".AssetsTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />

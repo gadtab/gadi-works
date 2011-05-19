@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 public class AndroidBasicsStarter extends ListActivity {
 	String[] tests = {"LifeCycleTest", "SingleTouchTest", "MultiTouchTest", 
-			"KeyTest", "AcceleromoterTest", "AssetTest", 
+			"KeyTest", "AccelerometerTest", "AssetsTest", 
 			"ExternalStorageTest", "SoundPoolTest", "MediaPlayerTest",
 			"FullScreenTest", "RenderViewTest", "ShapeTest", "BitmapTest",
 			"FontTest", "SurfaceViewTest"};
@@ -29,6 +29,7 @@ public class AndroidBasicsStarter extends ListActivity {
 		String testName = tests[position];
 		
 		try {
+			@SuppressWarnings("rawtypes")
 			Class clazz = Class.forName("il.co.gadiworks.testingstuff." + testName);
 			Intent intent = new Intent(this, clazz);
 			startActivity(intent);
