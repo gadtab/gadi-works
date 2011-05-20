@@ -37,6 +37,15 @@
         <activity android:label="External Storage Test"
           android:name=".ExternalStorageTest"
           android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Sound Pool Test"
+          android:name=".SoundPoolTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Media Player Test"
+          android:name=".MediaPlayerTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Full Screen Test"
+          android:name=".FullScreenTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
