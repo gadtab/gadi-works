@@ -49,6 +49,18 @@
         <activity android:label="Render View Test"
           android:name=".RenderViewTest"
           android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Shape Test"
+          android:name=".ShapeTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Bitmap Test"
+          android:name=".BitmapTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="Font Test"
+          android:name=".FontTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:label="SurfaceView Test"
+          android:name=".SurfaceViewTest"
+          android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
