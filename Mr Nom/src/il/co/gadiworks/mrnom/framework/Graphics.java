@@ -11,7 +11,7 @@ public interface Graphics {
 	
 	public void drawPixel(int x, int y, int color);
 	
-	public void drawLine(int x, int y, int x1, int x2, int color);
+	public void drawLine(int x, int y, int x2, int y2, int color);
 	
 	public void drawRect(int x, int y, int width, int height, int color);
 	
