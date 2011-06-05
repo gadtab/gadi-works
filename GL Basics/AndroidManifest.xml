@@ -3,16 +3,30 @@
       package="il.co.gadiworks.glbasics"
       android:versionCode="1"
       android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="10" />
-
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".GLSurfaceViewTest"
-                  android:label="@string/app_name">
+    <application android:icon="@drawable/icon" 
+    			 android:label="@string/app_name"
+    			 android:debuggable="true">
+    			 
+    	<activity android:name="GLBasicsStarter"
+                  android:label="GL Basics"
+                  android:screenOrientation="portrait"
+				  android:configChanges="keyboard|keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        
+        <activity android:name=".GLSurfaceViewTest"
+                  android:label="GLSurfaceView Test"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+                  
+        <activity android:name=".GLGameTest"
+                  android:label="GLGame Test"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
+    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-sdk android:minSdkVersion="10" />
 </manifest>
