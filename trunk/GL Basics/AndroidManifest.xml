@@ -24,6 +24,15 @@
         <activity android:name=".GLGameTest"
                   android:label="GLGame Test"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".FirstTriangleTest"
+                  android:label="First Triangle Test"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".ColoredTriangleTest"
+                  android:label="Colored Triangle Test"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".TexturedTriangleTest"
+                  android:label="Textured Triangle Test"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
