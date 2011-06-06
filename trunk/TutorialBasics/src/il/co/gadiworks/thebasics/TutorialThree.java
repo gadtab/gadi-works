@@ -1,6 +1,7 @@
 package il.co.gadiworks.thebasics;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -115,7 +116,8 @@ public class TutorialThree extends Activity implements OnClickListener {
 			toPhone = R.drawable.tree_winter;
 			break;
 		case R.id.btnSetWallpaper:
-			Bitmap bmWallpaper = BitmapFactory.decodeStream(getResources().openRawResource(toPhone));
+			InputStream isResource = getResources().openRawResource(toPhone);
+			Bitmap bmWallpaper = BitmapFactory.decodeStream(isResource);
 			try {
 				getApplicationContext().setWallpaper(bmWallpaper);
 				Toast.makeText(getApplicationContext(), "Wallpaper Set", Toast.LENGTH_SHORT).show();
