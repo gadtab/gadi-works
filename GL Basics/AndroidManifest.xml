@@ -6,7 +6,6 @@
     <application android:icon="@drawable/icon" 
     			 android:label="@string/app_name"
     			 android:debuggable="true">
-    			 
     	<activity android:name="GLBasicsStarter"
                   android:label="GL Basics"
                   android:screenOrientation="portrait"
