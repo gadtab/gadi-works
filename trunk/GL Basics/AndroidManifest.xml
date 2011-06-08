@@ -33,6 +33,15 @@
         <activity android:name=".TexturedTriangleTest"
                   android:label="Textured Triangle Test"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".IndexedTest"
+                  android:label="Indexed Test"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".BlendingTest"
+                  android:label="Blending Test"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+                  <activity android:name=".BobTest"
+                  android:label="Bob Test"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
