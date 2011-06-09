@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class GameDev2DStarter extends ListActivity {
-	String[] tests = {"CannonTest"};
+	String[] tests = {"CannonTest", "CannonGravityTest"};
 	
     /** Called when the activity is first created. */
     @Override
