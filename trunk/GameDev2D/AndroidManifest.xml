@@ -25,6 +25,11 @@
                   android:label="Cannon Gravity Test"
                   android:screenOrientation="landscape"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
+                 
+        <activity android:name=".CollisionTest"
+                  android:label="Collision Test"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
