@@ -35,6 +35,11 @@
                   android:label="Camera2D Test"
                   android:screenOrientation="landscape"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
+                  
+        <activity android:name=".TextureAtlasTest"
+                  android:label="Texture Atlas Test"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
