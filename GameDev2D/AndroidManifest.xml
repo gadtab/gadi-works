@@ -37,7 +37,12 @@
                   android:configChanges="keyboard|keyboardHidden|orientation" />
                   
         <activity android:name=".TextureAtlasTest"
-                  android:label="Texture Atlas Test"
+                  android:label="TextureAtlas Test"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+                  
+        <activity android:name=".SpriteBatcherTest"
+                  android:label="SpriteBatcher Test"
                   android:screenOrientation="landscape"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
