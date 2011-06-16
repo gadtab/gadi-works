@@ -1,6 +1,6 @@
 package il.co.gadiworks.gamedev2d;
 
-import il.co.gadiworks.games.gamedev2d.GameObject;
+import il.co.gadiworks.games.framework.GameObject;
 
 public class Cannon extends GameObject {
 	public float angle;

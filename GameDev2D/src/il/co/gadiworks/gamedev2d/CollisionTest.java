@@ -17,8 +17,8 @@ import il.co.gadiworks.games.framework.impl.GLGraphics;
 import il.co.gadiworks.games.framework.math.OverlapTester;
 import il.co.gadiworks.games.framework.math.Vector2;
 
-import il.co.gadiworks.games.gamedev2d.DynamicGameObject;
-import il.co.gadiworks.games.gamedev2d.GameObject;
+import il.co.gadiworks.games.framework.DynamicGameObject;
+import il.co.gadiworks.games.framework.GameObject;
 
 public class CollisionTest extends GLGame {
 
