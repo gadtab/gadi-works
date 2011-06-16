@@ -11,7 +11,7 @@ import il.co.gadiworks.games.framework.gl.Texture;
 import il.co.gadiworks.games.framework.gl.TextureRegion;
 import il.co.gadiworks.games.framework.impl.GLGame;
 import il.co.gadiworks.games.framework.impl.GLGraphics;
-import il.co.gadiworks.games.gamedev2d.DynamicGameObject;
+import il.co.gadiworks.games.framework.DynamicGameObject;
 
 public class AnimationTest extends GLGame {
 	static final float WORLD_WIDTH = 4.8f;
