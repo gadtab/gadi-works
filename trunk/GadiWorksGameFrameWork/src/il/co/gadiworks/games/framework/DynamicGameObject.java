@@ -1,4 +1,4 @@
-package il.co.gadiworks.games.gamedev2d;
+package il.co.gadiworks.games.framework;
 
 import il.co.gadiworks.games.framework.math.Vector2;
 
