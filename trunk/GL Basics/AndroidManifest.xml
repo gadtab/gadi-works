@@ -19,7 +19,6 @@
         <activity android:name=".GLSurfaceViewTest"
                   android:label="GLSurfaceView Test"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
-                  
         <activity android:name=".GLGameTest"
                   android:label="GLGame Test"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
@@ -38,7 +37,7 @@
         <activity android:name=".BlendingTest"
                   android:label="Blending Test"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
-                  <activity android:name=".BobTest"
+        <activity android:name=".BobTest"
                   android:label="Bob Test"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
