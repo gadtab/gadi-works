@@ -14,14 +14,14 @@ public class Bob extends DynamicGameObject {
 	int state;
 	float stateTime;
 
-	public Bob(int type, float x, float y) {
+	public Bob(float x, float y) {
 		super(x, y, BOB_WIDTH, BOB_HEIGHT);
 		this.state = BOB_STATE_FALL;
 		this.stateTime = 0;
 	}
 	
 	public void update(float deltaTime) {
-		VELOCITY.add(World.gravity.x * deltaTime, World.gravity.y * deltaTime);
+		VELOCITY.add(World.GRAVITY.x * deltaTime, World.GRAVITY.y * deltaTime);
 		POSITION.add(VELOCITY.x * deltaTime, VELOCITY.y * deltaTime);
 		BOUNDS.LOWER_LEFT.set(POSITION).sub(BOUNDS.width / 2, BOUNDS.height / 2);
 		
