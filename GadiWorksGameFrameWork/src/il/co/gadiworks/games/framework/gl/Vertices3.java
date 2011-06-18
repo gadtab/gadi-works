@@ -2,31 +2,33 @@ package il.co.gadiworks.games.framework.gl;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
 import il.co.gadiworks.games.framework.impl.GLGraphics;
 
-public class Vertices {
+public class Vertices3 {
 	final GLGraphics glGraphics;
 	final boolean hasColor;
 	final boolean hasTexCoords;
 	final int vertexSize;
-	final FloatBuffer vertices;
+	final IntBuffer vertices;
+	final int[] tmpBuffer;
 	final ShortBuffer indices;
 	
-	public Vertices(GLGraphics glGraphics, int maxVertices, int maxIndices, 
+	public Vertices3(GLGraphics glGraphics, int maxVertices, int maxIndices, 
 			boolean hasColor, boolean hasTexCoords) {
 		this.glGraphics = glGraphics;
 		this.hasColor = hasColor;
 		this.hasTexCoords = hasTexCoords;
-		this.vertexSize = (2 + (this.hasColor ? 4 : 0) + (this.hasTexCoords ? 2 : 0)) * 4;
+		this.vertexSize = (3 + (this.hasColor ? 4 : 0) + (this.hasTexCoords ? 2 : 0)) * 4;
+		this.tmpBuffer = new int[maxVertices * this.vertexSize / 4];
 		
 		ByteBuffer buffer = ByteBuffer.allocateDirect(maxVertices * this.vertexSize);
 		buffer.order(ByteOrder.nativeOrder());
-		this.vertices = buffer.asFloatBuffer();
+		this.vertices = buffer.asIntBuffer();
 		
 		if (maxIndices > 0) {
 			buffer = ByteBuffer.allocateDirect(maxIndices * Short.SIZE / 8);
@@ -40,7 +42,11 @@ public class Vertices {
 	
 	public void setVertices(float[] vertices, int offset, int length) {
 		this.vertices.clear();
-		this.vertices.put(vertices, offset, length);
+		int len = offset + length;
+		for (int i = offset, j = 0; i < len; i++, j++) {
+			this.tmpBuffer[j] = Float.floatToRawIntBits(vertices[i]);
+		}
+		this.vertices.put(this.tmpBuffer, 0, length);
 		this.vertices.flip();
 	}
 	
@@ -55,17 +61,17 @@ public class Vertices {
 		
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		this.vertices.position(0);
-		gl.glVertexPointer(2, GL10.GL_FLOAT, this.vertexSize, this.vertices);
+		gl.glVertexPointer(3, GL10.GL_FLOAT, this.vertexSize, this.vertices);
 		
 		if (this.hasColor) {
 			gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
-			this.vertices.position(2);
+			this.vertices.position(3);
 			gl.glColorPointer(4, GL10.GL_FLOAT, this.vertexSize, this.vertices);
 		}
 		
 		if (this.hasTexCoords) {
 			gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-			this.vertices.position(this.hasColor ? 6 : 2);
+			this.vertices.position(this.hasColor ? 7 : 3);
 			gl.glTexCoordPointer(2, GL10.GL_FLOAT, this.vertexSize, this.vertices);
 		}
 	}
