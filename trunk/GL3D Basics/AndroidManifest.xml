@@ -27,6 +27,18 @@
                   android:label="ZBuffer Test"
                   android:screenOrientation="landscape"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".ZBlendingTest"
+                  android:label="ZBlending Test"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".CubeTest"
+                  android:label="Cube Test"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name=".HierarchyTest"
+                  android:label="Hierarchy Test"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
     </application>
     
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
