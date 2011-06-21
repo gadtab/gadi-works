@@ -113,7 +113,7 @@ public class HierarchyTest extends GLGame {
 			GLU.gluPerspective(gl, 67, GL_GRAPHICS.getWidth() / (float)GL_GRAPHICS.getHeight(), 0.1f, 10f);
 			gl.glMatrixMode(GL10.GL_MODELVIEW);
 			gl.glLoadIdentity();
-			gl.glTranslatef(0, -2, 0);
+			GLU.gluLookAt(gl, 3, 3, 0, 0, 0, -5, 0, 1, 0);
 			
 			gl.glEnable(GL10.GL_DEPTH_TEST);
 			gl.glEnable(GL10.GL_TEXTURE_2D);
