@@ -13,17 +13,19 @@ public class Vertices3 {
 	final GLGraphics glGraphics;
 	final boolean hasColor;
 	final boolean hasTexCoords;
+	final boolean hasNormals;
 	final int vertexSize;
 	final IntBuffer vertices;
 	final int[] tmpBuffer;
 	final ShortBuffer indices;
 	
 	public Vertices3(GLGraphics glGraphics, int maxVertices, int maxIndices, 
-			boolean hasColor, boolean hasTexCoords) {
+			boolean hasColor, boolean hasTexCoords, boolean hasNormals) {
 		this.glGraphics = glGraphics;
 		this.hasColor = hasColor;
 		this.hasTexCoords = hasTexCoords;
-		this.vertexSize = (3 + (this.hasColor ? 4 : 0) + (this.hasTexCoords ? 2 : 0)) * 4;
+		this.hasNormals = hasNormals;
+		this.vertexSize = (3 + (this.hasColor ? 4 : 0) + (this.hasTexCoords ? 2 : 0) + (this.hasNormals ? 3 : 0)) * 4;
 		this.tmpBuffer = new int[maxVertices * this.vertexSize / 4];
 		
 		ByteBuffer buffer = ByteBuffer.allocateDirect(maxVertices * this.vertexSize);
@@ -74,6 +76,20 @@ public class Vertices3 {
 			this.vertices.position(this.hasColor ? 7 : 3);
 			gl.glTexCoordPointer(2, GL10.GL_FLOAT, this.vertexSize, this.vertices);
 		}
+		
+		if (this.hasNormals) {
+			gl.glEnableClientState(GL10.GL_NORMAL_ARRAY);
+			int offset = 3;
+			if (this.hasColor) {
+				offset += 4;
+			}
+			if (this.hasTexCoords) {
+				offset += 2;
+			}
+			
+			this.vertices.position(offset);
+			gl.glNormalPointer(GL10.GL_FLOAT, this.vertexSize, this.vertices);
+		}
 	}
 	
 	public void draw(int primitiveType, int offset, int numVertices) {
@@ -97,6 +113,10 @@ public class Vertices3 {
 		
 		if (this.hasColor) {
 			gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
+		}
+		
+		if (this.hasNormals) {
+			gl.glDisableClientState(GL10.GL_NORMAL_ARRAY);
 		}
 	}
 }
