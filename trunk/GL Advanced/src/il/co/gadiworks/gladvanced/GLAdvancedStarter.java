@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class GLAdvancedStarter extends ListActivity {
-	String[] tests = {"LightTest"};
+	String[] tests = {"LightTest", "EulerCameraTest", "ObjTest"};
 	
     /** Called when the activity is first created. */
     @Override
