@@ -119,4 +119,12 @@ public class Vertices3 {
 			gl.glDisableClientState(GL10.GL_NORMAL_ARRAY);
 		}
 	}
+	
+	public int getNumIndices() {
+		return this.indices.limit();
+	}
+	
+	public int getNumVertices() {
+		return this.vertices.limit() / (this.vertexSize / 4);
+	}
 }

@@ -41,6 +41,13 @@ public class OverlapTester {
 		return c.CENTER.distSquared(closestX, closestY) < c.radius * c.radius;
 	}
 	
+	public static boolean overlapSpheres(Sphere s1, Sphere s2) {
+		float distance = s1.CENTER.distSquared(s2.CENTER);
+		float radiusSum = s1.radius + s2.radius;
+		
+		return distance <= radiusSum * radiusSum;
+	}
+	
 	public static boolean pointInCircle(Circle c, Vector2 p) {
 		return c.CENTER.distSquared(p) < c.radius * c.radius;
 	}
@@ -57,5 +64,13 @@ public class OverlapTester {
 	public static boolean pointInRectangle(Rectangle r, float x, float y) {
 		return r.LOWER_LEFT.x <= x && r.LOWER_LEFT.x + r.width >= x &&
 			   r.LOWER_LEFT.y <= y && r.LOWER_LEFT.y + r.height >= y;
+	}
+	
+	public static boolean pointInSphere(Sphere s, Vector3 p) {
+		return s.CENTER.distSquared(p) < s.radius * s.radius;
+	}
+	
+	public static boolean pointInSphere(Sphere s, float x, float y, float z) {
+		return s.CENTER.distSquared(x, y, z) < s.radius * s.radius;
 	}
 }

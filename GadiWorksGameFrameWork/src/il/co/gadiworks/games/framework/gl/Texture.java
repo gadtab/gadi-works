@@ -7,6 +7,8 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.opengl.GLUtils;
 
 import il.co.gadiworks.games.framework.FileIO;
@@ -22,11 +24,17 @@ public class Texture {
 	int magFilter;
 	public int width;
     public int height;
+    boolean mipmapped;
+    
+    public Texture(GLGame glGame, String fileName) {
+    	this(glGame, fileName, false);
+    }
 	
-	public Texture(GLGame glGame, String fileName) {
+	public Texture(GLGame glGame, String fileName, boolean mipmapped) {
 		this.glGraphics = glGame.getGLGraphics();
 		this.fileIO = glGame.getFileIO();
 		this.fileName = fileName;
+		this.mipmapped = mipmapped;
 		
 		load();
 	}
@@ -42,13 +50,18 @@ public class Texture {
 		try {
 			in = this.fileIO.readAsset(this.fileName);
 			Bitmap bitmap = BitmapFactory.decodeStream(in);
-			gl.glBindTexture(GL10.GL_TEXTURE_2D, this.textureId);
-			GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
-			setFilters(GL10.GL_NEAREST, GL10.GL_NEAREST);
-			gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
-			this.width = bitmap.getWidth();
-			this.height = bitmap.getHeight();
-            bitmap.recycle();
+			if (this.mipmapped) {
+				createMipmaps(gl, bitmap);
+			}
+			else{
+				gl.glBindTexture(GL10.GL_TEXTURE_2D, this.textureId);
+				GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
+				setFilters(GL10.GL_NEAREST, GL10.GL_NEAREST);
+				gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
+				this.width = bitmap.getWidth();
+				this.height = bitmap.getHeight();
+	            bitmap.recycle();
+			}
 		}
 		catch (IOException e) {
 			throw new RuntimeException("Couldn't load texture '" + this.fileName + "'", e);
@@ -65,6 +78,39 @@ public class Texture {
 		}
 	}
 	
+	private void createMipmaps(GL10 gl, Bitmap bitmap) {
+		gl.glBindTexture(GL10.GL_TEXTURE_2D, this.textureId);
+		this.width = bitmap.getWidth();
+		this.height = bitmap.getHeight();
+		setFilters(GL10.GL_LINEAR_MIPMAP_NEAREST, GL10.GL_LINEAR);
+		
+		int level = 0;
+		int newWidth = this.width;
+		int newHeight = this.height;
+		
+		while (true) {
+			GLUtils.texImage2D(GL10.GL_TEXTURE_2D, level, bitmap, 0);
+			newWidth /= 2;
+			newHeight /=2;
+			if (newWidth <= 0) {
+				break;
+			}
+			
+			Bitmap newBitmap = Bitmap.createBitmap(newWidth, newHeight, bitmap.getConfig());
+			Canvas canvas = new Canvas(newBitmap);
+			canvas.drawBitmap(bitmap, 
+							  new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight()), 
+							  new Rect(0, 0, newWidth, newHeight), 
+							  null);
+			bitmap.recycle();
+			bitmap = newBitmap;
+			level++;
+		}
+		
+		gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
+		bitmap.recycle();
+	}
+
 	public void reload() {
 		load();
 		bind();
