@@ -5,6 +5,7 @@ public class Font {
 	public final int GLYPH_WIDTH;
 	public final int GLYPH_HEIGHT;
 	public final TextureRegion[] GLYPHS = new TextureRegion[96];
+	final String TAG = "Font";
 	
 	public Font(Texture texture,
 				int offsetX, int offsetY,
@@ -27,7 +28,7 @@ public class Font {
 	public void drawText(SpriteBatcher batcher, String text, float x, float y) {
 		int len = text.length();
 		for (int i = 0; i < len; i++) {
-			int c = text.charAt(i);
+			int c = text.charAt(i) - ' ';
 			if (c < 0 || c > this.GLYPHS.length - 1) {
 				continue;
 			}
