@@ -181,7 +181,7 @@ public class World {
 		return this.SHIP.lives == 0;
 	}
 	
-	public void shoot() {
+	public void shot() {
 		if (this.SHIP.state == Ship.SHIP_EXPLODING) {
 			return;
 		}
