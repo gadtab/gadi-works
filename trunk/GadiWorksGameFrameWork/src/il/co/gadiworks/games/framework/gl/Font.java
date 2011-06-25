@@ -19,7 +19,7 @@ public class Font {
 			x += glyphWidth;
 			if (x == offsetX + glyphsPerRow * glyphWidth) {
 				x = offsetX;
-				y += offsetY;
+				y += glyphHeight;
 			}
 		}
 	}
