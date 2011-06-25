@@ -1,13 +1,39 @@
 package il.co.gadiworks.droidinvaders;
 
-import android.app.Activity;
-import android.os.Bundle;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
 
-public class DroidInvaders extends Activity {
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-    }
+import il.co.gadiworks.games.framework.Screen;
+import il.co.gadiworks.games.framework.impl.GLGame;
+
+public class DroidInvaders extends GLGame {
+	boolean firstTimeCreate = true;
+
+	@Override
+	public Screen getStartScreen() {
+		return new MainMenuScreen(this);
+	}
+	
+	@Override
+	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+		super.onSurfaceCreated(gl, config);
+		
+		if (this.firstTimeCreate) {
+			Settings.load(getFileIO());
+			Assets.load(this);
+			this.firstTimeCreate = false;
+		}
+		else {
+			Assets.reload();
+		}
+	}
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		
+		if (Settings.soundEnabled) {
+			Assets.music.pause();
+		}
+	}
 }
