@@ -70,7 +70,7 @@ public class GameScreen extends GLScreen {
 		this.lastScore = 0;
 		this.lastLives = this.world.SHIP.lives;
 		this.lastWaves = this.world.waves;
-		this.scoreString = "lives: " + this.lastLives + "; waves: " + this.lastWaves + "; score: " + this.lastScore;
+		this.scoreString = "LIVES: " + this.lastLives + "; WAVES: " + this.lastWaves + "; SCORE: " + this.lastScore;
 		this.fpsCounter = new FPSCounter();
 	}
 	
@@ -136,7 +136,7 @@ public class GameScreen extends GLScreen {
 			this.lastLives = this.world.SHIP.lives;
 			this.lastScore = this.world.score;
 			this.lastWaves = this.world.waves;
-			this.scoreString = "lives: " + this.lastLives + "; waves: " + this.lastWaves + "; score: " + this.lastScore;
+			this.scoreString = "LIVES: " + this.lastLives + "; WAVES: " + this.lastWaves + "; SCORE: " + this.lastScore;
 		}
 		if (this.world.isGameOver()) {
 			this.state = GAME_OVER;
