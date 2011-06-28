@@ -59,7 +59,7 @@ public class SettingScreen extends GLScreen {
 			}
 			if (OverlapTester.pointInRectangle(this.soundBounds, this.touchPoint)) {
 				Assets.playSound(Assets.clickSound);
-				Settings.touchEnabled = !Settings.touchEnabled;
+				Settings.soundEnabled = !Settings.soundEnabled;
 				if (Settings.soundEnabled) {
 					Assets.music.play();
 				}
