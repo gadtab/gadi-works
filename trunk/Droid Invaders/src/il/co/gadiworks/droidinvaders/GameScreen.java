@@ -56,7 +56,7 @@ public class GameScreen extends GLScreen {
 			
 			@Override
 			public void explostion() {
-				Assets.playSound(Assets.explostionSound);
+				Assets.playSound(Assets.explosionSound);
 			}
 		};
 		this.world.setWorldListener(worldListener);
