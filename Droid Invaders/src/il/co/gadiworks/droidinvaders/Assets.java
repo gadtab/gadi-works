@@ -43,7 +43,7 @@ public class Assets {
 	
 	public static Music music;
 	public static Sound clickSound;
-	public static Sound explostionSound;
+	public static Sound explosionSound;
 	public static Sound shotSound;
 	
 	public static void load(GLGame game) {
@@ -79,7 +79,7 @@ public class Assets {
 		explosionAnim = new Animation(0.1f, keyFrames);
 		
 		shipTexture = new Texture(game, "ship.png", true);
-		shipModel = ObjLoader.load(game, "shot.obj");
+		shipModel = ObjLoader.load(game, "ship.obj");
 		invaderTexture = new Texture(game, "invader.png", true);
 		invaderModel = ObjLoader.load(game, "invader.obj");
 		shieldModel = ObjLoader.load(game, "shield.obj");
@@ -93,7 +93,7 @@ public class Assets {
 		}
 		
 		clickSound = game.getAudio().newSound("click.ogg");
-		explostionSound = game.getAudio().newSound("explosion.ogg");
+		explosionSound = game.getAudio().newSound("explosion.ogg");
 		shotSound = game.getAudio().newSound("shot.ogg");
 	}
 	
