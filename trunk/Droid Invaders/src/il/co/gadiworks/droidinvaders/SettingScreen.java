@@ -36,7 +36,7 @@ public class SettingScreen extends GLScreen {
 	
 	@Override
 	public void update(float deltaTime) {
-List<TouchEvent> events = GAME.getInput().getTouchEvents();
+		List<TouchEvent> events = GAME.getInput().getTouchEvents();
 		
 		int len = events.size();
 		for (int i = 0; i < len; i++) {
@@ -99,9 +99,9 @@ List<TouchEvent> events = GAME.getInput().getTouchEvents();
 		this.batcher.drawSprite(240, 160, 64, 64, 
 				Settings.touchEnabled ? Assets.accelRegion : Assets.accelEnabledRegion);
 		this.batcher.drawSprite(360, 160, 64, 64, 
-				Settings.soundEnabled ? Assets.soundEnabledRegion : Assets.leftRegion);
+				Settings.soundEnabled ? Assets.soundEnabledRegion : Assets.soundRegion);
 		
-		this.batcher.drawSprite(32, 32, 64, 64, Assets.settingsRegion);
+		this.batcher.drawSprite(32, 32, 64, 64, Assets.leftRegion);
 		
 		this.batcher.endBatch();
 		
