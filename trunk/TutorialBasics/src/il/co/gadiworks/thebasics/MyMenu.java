@@ -76,6 +76,28 @@ public class MyMenu extends Activity {
 				mpButtonClick.start();
 			}
 		});
+        
+        // Button 6.
+        Button btnTutorial6 = (Button) findViewById(R.id.btnTutorial6);
+        btnTutorial6.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent("il.co.gadiworks.thebasics.DRAWINGMAIN"));
+				mpButtonClick.start();
+			}
+		});
+        
+        // Button 7.
+        Button btnTutorial7 = (Button) findViewById(R.id.btnTutorial7);
+        btnTutorial7.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent("il.co.gadiworks.thebasics.SURFACEVIEWEXAMPLE"));
+				mpButtonClick.start();
+			}
+		});
     }
     
     @Override
