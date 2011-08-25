@@ -46,7 +46,7 @@ public class TutorialFour extends Activity implements OnCheckedChangeListener {
 			@Override
 			public boolean onLongClick(View v) {
 				File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-				File file = new File(path, "GadiWorks Song" + whatSong + ".mp3");
+				File file = new File(path, "GadiWorks Song " + whatSong + ".mp3");
 				
 				try {
 					switch (whatSong) {
