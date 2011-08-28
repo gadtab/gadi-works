@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class StartingPoint extends Activity {
-	int counter;
+	static int counter = 0;
 	Button bAdd, bSub;
 	TextView tvDisplay;
 	
@@ -18,7 +18,7 @@ public class StartingPoint extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        counter = 0;
+//        counter = 0;
         
         bAdd = (Button) findViewById(R.id.bAdd);
         bSub = (Button) findViewById(R.id.bSub);

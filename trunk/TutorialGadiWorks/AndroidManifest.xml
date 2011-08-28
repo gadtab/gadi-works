@@ -5,6 +5,7 @@
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="8" />
     <uses-permission android:name="android.permission.SET_WALLPAPER"></uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
     	<activity android:name=".Splash"
@@ -38,6 +39,30 @@
         <activity android:name=".Data"
                   android:label="@string/app_name" />
         <activity android:name=".OpenedClass"
+                  android:label="@string/app_name" />
+         <activity android:name=".AboutUs"
+                   android:label="@string/app_name"
+                   android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="il.co.gadiworks.tutorial.ABOUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Prefs"
+                   android:label="@string/app_name"
+                   android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="il.co.gadiworks.tutorial.PREFS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GFX"
+                  android:label="@string/app_name" />
+        <activity android:name=".GFXSurface"
+                  android:label="@string/app_name" />
+        <activity android:name=".SoundStuff"
+                  android:label="@string/app_name" />
+        <activity android:name=".Slider"
                   android:label="@string/app_name" />
     </application>
 </manifest>

@@ -2,8 +2,10 @@ package il.co.gadiworks.tutorial;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 
 public class Splash extends Activity {
 	MediaPlayer ourSong;
@@ -14,7 +16,12 @@ public class Splash extends Activity {
 		setContentView(R.layout.splash);
 		
 		ourSong = MediaPlayer.create(this, R.raw.splashsound);
-		ourSong.start();
+		
+		SharedPreferences getPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		boolean music = getPrefs.getBoolean("checkbox", true);
+		if (music) {
+			ourSong.start();
+		}
 		
 		Thread timer = new Thread() {
 			public void run() {

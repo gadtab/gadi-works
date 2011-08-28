@@ -4,18 +4,18 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="Your Total is 0"
-    android:textSize="45dp"
-    android:gravity="center"
-    android:id="@+id/tvDisplay"
-    />
+	<TextView  
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:text="Your Total is 0"
+	    android:textSize="45dp"
+	    android:gravity="center"
+	    android:id="@+id/tvDisplay"
+	    />
     <Button 
-    	android:layout_width="250dp" 
+    	android:layout_width="wrap_content" 
     	android:layout_height="wrap_content" 
-    	android:text="Add One"
+    	android:background="@drawable/custom"
     	android:layout_gravity="center"
     	android:textSize="20dp"
     	android:id="@+id/bAdd"
