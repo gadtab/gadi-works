@@ -16,4 +16,16 @@
 		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 	<Button android:text="View" android:id="@+id/bSQLOpenView"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	<TextView android:text="Enter Row ID" android:layout_width="wrap_content"
+		android:layout_height="wrap_content"></TextView>
+	<EditText android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:id="@+id/etSQLRowInfo"
+		android:inputType="number">
+	</EditText>
+	<Button android:text="Get Information" android:id="@+id/bGetInfo"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	<Button android:text="Edit Entry" android:id="@+id/bSQLModify"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	<Button android:text="Delete Entry" android:id="@+id/bSQLDelete"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 </LinearLayout>
