@@ -2,6 +2,7 @@ package il.co.gadiworks.tutorial;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -62,5 +63,60 @@ public class HotOrNot {
 		cv.put(KEY_HOTNESS, hotness);
 		
 		return ourDatabase.insert(DATABASE_TABLE, null, cv);
+	}
+
+	public String getData() {
+		String[] columns = new String[] {KEY_ROWID, KEY_NAME, KEY_HOTNESS};
+		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null, null, null);
+		String result = "";
+		
+		int iRow = c.getColumnIndex(KEY_ROWID);
+		int iName = c.getColumnIndex(KEY_NAME);
+		int iHotness = c.getColumnIndex(KEY_HOTNESS);
+		
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			result += c.getString(iRow) + " " + c.getString(iName) + " " + c.getString(iHotness) + "\n"; 
+		}
+		
+		return result;
+	}
+
+	public String geName(long l) throws SQLException {
+		String[] columns = new String[] {KEY_ROWID, KEY_NAME, KEY_HOTNESS};
+		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, KEY_ROWID + "=" + l, null, null, null, null);
+		
+		if (c != null) {
+			c.moveToFirst();
+			String name = c.getString(1);
+			
+			return name;
+		}
+		return null;
+	}
+
+	public String geHotness(long l) throws SQLException {
+		String[] columns = new String[] {KEY_ROWID, KEY_NAME, KEY_HOTNESS};
+		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, KEY_ROWID + "=" + l, null, null, null, null);
+		
+		if (c != null) {
+			c.moveToFirst();
+			String hotness = c.getString(2);
+			
+			return hotness;
+		}
+		
+		return null;
+	}
+
+	public void updateEntry(long lRow, String mName, String mHotness) throws SQLException {
+		ContentValues cvUpdate = new ContentValues();
+		cvUpdate.put(KEY_NAME, mName);
+		cvUpdate.put(KEY_HOTNESS, mHotness);
+		
+		ourDatabase.update(DATABASE_TABLE, cvUpdate, KEY_ROWID + "=" + lRow, null);
+	}
+
+	public void deleteEntry(long lRow1) throws SQLException {
+		ourDatabase.delete(DATABASE_TABLE, KEY_ROWID + "=" + lRow1, null);
 	}
 }
