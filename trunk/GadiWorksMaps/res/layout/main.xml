@@ -3,11 +3,11 @@
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
 	<com.google.android.maps.MapView
-		android:id="@+id/mapView"
+		android:id="@+id/mvMain"
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:enabled="true"
 	    android:clickable="true"
-	    android:apiKey="08MwNy3TA7fkum57weKaxNULBOPIlDSCLct8wrQ"
+	    android:apiKey="08MwNy3TA7fl7YU5vtDTT2dDrSgfUt6xKTOmRsA"
 	     />
 </RelativeLayout>
