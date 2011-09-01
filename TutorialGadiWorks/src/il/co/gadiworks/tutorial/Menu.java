@@ -16,7 +16,9 @@ public class Menu extends ListActivity {
 						"Camera", "Data", "GFX", "GFXSurface",
 						"SoundStuff", "Slider", "Tabs", "SimpleBrowser",
 						"Flipper", "SharedPrefs", "InternalData", "ExternalData",
-						"SQLiteExample", "Accelerate"};
+						"SQLiteExample", "Accelerate", "HttpExample",
+						"WeatherXMLParsing", "GLExample", "GLCubeEx",
+						"Voice"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
