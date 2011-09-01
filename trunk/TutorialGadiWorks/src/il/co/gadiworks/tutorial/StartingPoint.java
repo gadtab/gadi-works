@@ -1,6 +1,10 @@
 package il.co.gadiworks.tutorial;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
+
 import android.app.Activity;
+import android.location.Address;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,6 +28,9 @@ public class StartingPoint extends Activity {
         bSub = (Button) findViewById(R.id.bSub);
         
         tvDisplay = (TextView) findViewById(R.id.tvDisplay);
+        
+        AdView ad = (AdView) findViewById(R.id.ad);
+        ad.loadAd(new AdRequest());
         
         bAdd.setOnClickListener(new OnClickListener() {
 			

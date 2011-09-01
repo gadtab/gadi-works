@@ -1,12 +1,10 @@
 package il.co.gadiworks.tutorial;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
@@ -34,21 +32,25 @@ public class Voice extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// Check to see if a recognition activity is present
-		PackageManager pm = getPackageManager();
+//		PackageManager pm = getPackageManager();
 		Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+		i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+		i.putExtra("calling_package", "il.co.gadiworks.tutorial");
+		i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak up son!");
 		
-		List<ResolveInfo> activities = pm.queryIntentActivities(i, 0);
+//		List<ResolveInfo> activities = pm.queryIntentActivities(i, 0);
 		
-		if (activities.size() != 0) {
-		
-			i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-			i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak up son!");
-			
+//		if (activities.size() != 0) {
+		try{
 			startActivityForResult(i, check);
 		}
-		else {
-			Toast.makeText(this, "You do not have a voice recognition device", Toast.LENGTH_SHORT).show();
+//		}
+//		else {
+		catch (ActivityNotFoundException e) {
+			Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+			e.printStackTrace();
 		}
+//		}
 	}
 
 	@Override
