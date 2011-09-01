@@ -1,5 +1,9 @@
 package il.co.gadiworks.tutorial;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +11,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class Data extends Activity implements OnClickListener {
 	EditText etSend;
 	Button bSA, bSAFR;
 	TextView tvGot;
+	RelativeLayout rl;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,11 @@ public class Data extends Activity implements OnClickListener {
 		setContentView(R.layout.get);
 		
 		initialize();
+		// Adding an ad with only Java
+		rl = (RelativeLayout) findViewById(R.id.relLayout);
+		AdView ad = new AdView(this, AdSize.BANNER, "4dd345qwre3");
+		rl.addView(ad);
+		ad.loadAd(new AdRequest());
 	}
 
 	private void initialize() {

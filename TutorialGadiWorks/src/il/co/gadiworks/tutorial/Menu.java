@@ -18,7 +18,7 @@ public class Menu extends ListActivity {
 						"Flipper", "SharedPrefs", "InternalData", "ExternalData",
 						"SQLiteExample", "Accelerate", "HttpExample",
 						"WeatherXMLParsing", "GLExample", "GLCubeEx",
-						"Voice"};
+						"Voice", "TextVoice", "StatusBar", "SeekBarVolume"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
