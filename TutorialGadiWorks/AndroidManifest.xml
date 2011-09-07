@@ -146,5 +146,11 @@
          <activity android:name=".SeekBarVolume"
                   android:label="@string/app_name"
          />
+         <activity android:name=".ShoppingList"
+                  android:label="@string/app_name"
+         />
+         <activity android:name=".MyFaceDetection"
+                  android:label="@string/app_name"
+         />
     </application>
 </manifest>
