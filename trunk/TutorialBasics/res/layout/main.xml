@@ -78,7 +78,7 @@
 			<Button 
 				android:id="@+id/btnTutorial6" 
 				android:layout_height="wrap_content" 
-				android:text="Tutorial 6" 
+				android:text="Graphics via View" 
 				android:layout_width="fill_parent" 
 				android:textSize="25dp" 
 				android:textStyle="bold" 
@@ -86,7 +86,7 @@
 			<Button 
 				android:id="@+id/btnTutorial7" 
 				android:layout_height="wrap_content" 
-				android:text="Tutorial 7" 
+				android:text="Graphics via SurfaceView" 
 				android:layout_width="fill_parent" 
 				android:textSize="25dp" 
 				android:textStyle="bold" 
